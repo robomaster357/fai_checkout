@@ -64,6 +64,16 @@ button:active {
   background-color: #1e40af; /* bleu encore plus foncé */
 }
 
+#errorBox {
+  color: #b91c1c; /* rouge foncé lisible */
+  background-color: #fee2e2; /* rouge très clair en fond */
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: none; /* on cache par défaut */
+}
+
 /* === Responsive : sur petits écrans === */
 @media (max-width: 480px) {
   form {

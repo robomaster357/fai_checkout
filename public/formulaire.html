@@ -14,9 +14,9 @@
     <input type="email" id="email" placeholder="Email" required />
     <input type="number" id="amount" placeholder="Montant en euros" required />
     <button type="submit">Payer</button>
+    <!-- Zone pour afficher les erreurs -->
+    <div id="errorBox"></div>
   </form>
-
-<div id="errorBox" style="color:red; margin-top:1em;"></div>
 
 <script>
 const form = document.getElementById("checkoutForm");
@@ -25,7 +25,9 @@ const errorBox = document.getElementById("errorBox");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  errorBox.textContent = ""; // Réinitialiser
+  // 🔹 Réinitialiser la zone d'erreur avant de tenter le paiement
+  errorBox.style.display = "none";
+  errorBox.textContent = "";
 
   const data = Object.fromEntries(new FormData(e.target).entries());
 
@@ -39,13 +41,13 @@ form.addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (response.ok && result.url) {
-      // Rediriger vers HelloAsso
       window.location.href = result.url;
     } else {
-      // Afficher erreur et détails
+      errorBox.style.display = "block";
       errorBox.innerHTML = `<strong>Erreur :</strong> ${result.error || "inconnue"}<br>
                             <pre>${result.details || ""}</pre>`;
     }
+
   } catch (err) {
     errorBox.innerHTML = `<strong>Erreur serveur :</strong> ${err.message}`;
   }
