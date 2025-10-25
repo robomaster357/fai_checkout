@@ -1,0 +1,73 @@
+/* === Style global de la page === */
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif; /* police moderne, lisible */
+  background: linear-gradient(135deg, #f0f4ff, #e2ecff); /* dégradé doux bleu clair */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* prend toute la hauteur de la fenêtre */
+  margin: 0;
+}
+
+/* === Conteneur du formulaire === */
+form {
+  background-color: #ffffff; /* fond blanc propre */
+  padding: 2rem; /* espace interne */
+  border-radius: 12px; /* coins arrondis */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* ombre légère */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* espace entre les champs */
+  width: 100%;
+  max-width: 400px; /* largeur max sur grand écran */
+}
+
+/* === Champs de saisie === */
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  padding: 0.75rem 1rem; /* espace interne pour rendre plus confortable */
+  border: 1px solid #ccc; /* bordure fine */
+  border-radius: 8px; /* coins arrondis */
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s; /* animation douce lors du focus */
+}
+
+/* Effet focus (quand on clique dans un champ) */
+input:focus {
+  border-color: #3b82f6; /* bleu moderne */
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.4); /* halo bleu */
+  outline: none; /* supprime la bordure par défaut */
+}
+
+/* === Bouton de soumission === */
+button {
+  background-color: #3b82f6; /* bleu principal */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer; /* main au survol */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Effet au survol du bouton */
+button:hover {
+  background-color: #2563eb; /* bleu un peu plus foncé */
+  transform: translateY(-2px); /* léger effet de soulèvement */
+}
+
+/* Effet clic (appui sur le bouton) */
+button:active {
+  transform: translateY(0);
+  background-color: #1e40af; /* bleu encore plus foncé */
+}
+
+/* === Responsive : sur petits écrans === */
+@media (max-width: 480px) {
+  form {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}
