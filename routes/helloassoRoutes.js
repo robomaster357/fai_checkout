@@ -97,7 +97,7 @@ router.post("/create-payment", async (req, res) => {
     res.json(checkoutData);
   } catch (err) {
     console.error("Erreur lors de la création du paiement HelloAsso:", err);
-    //res.status(500).json({ error: "Erreur serveur HelloAsso" });
+    res.status(500).json({ error: "Erreur serveur HelloAsso" });
   }
 });
 
