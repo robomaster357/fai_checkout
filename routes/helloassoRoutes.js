@@ -83,13 +83,21 @@ router.post("/create-payment", async (req, res) => {
     }
 
     // ✅ Puis seulement parser en JSON
-    const checkoutData = JSON.parse(text);
-    console.log("✅ Paiement HelloAsso créé:", checkoutData);
+    let checkoutData;
+    try {
+      checkoutData = JSON.parse(text); // tenter de parser JSON
+    } catch (err) {
+      console.error("❌ Impossible de parser la réponse JSON:", text);
+      return res.status(500).json({
+        error: "Réponse HelloAsso invalide",
+        details: text,
+      });
+    }
 
     res.json(checkoutData);
   } catch (err) {
     console.error("Erreur lors de la création du paiement HelloAsso:", err);
-    res.status(500).json({ error: "Erreur serveur HelloAsso" });
+    //res.status(500).json({ error: "Erreur serveur HelloAsso" });
   }
 });
 
