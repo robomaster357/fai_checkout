@@ -35,9 +35,9 @@ router.post("/create-payment", async (req, res) => {
         totalAmount: 20*100, //en centimes
         initialAmount: 20*100,
         itemName: "Box fibre",
-        backUrl: "http://localhost:3000",
-        errorUrl: "http://localhost:3000/formulaire.html",
-        returnUrl: "http://localhost:3000/formulaire.html",
+        backUrl: "https://fai-checkout.onrender.com/cancel",
+        errorUrl: "https://fai-checkout.onrender.com/error",
+        returnUrl: "https://fai-checkout.onrender.com/return",
         containsDonation: false,
         terms: [
             null
