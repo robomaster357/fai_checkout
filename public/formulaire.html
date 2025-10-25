@@ -14,6 +14,7 @@
     <input type="email" id="email" placeholder="Email" required />
     <input type="number" id="amount" placeholder="Montant en euros" required />
     <button type="submit">Payer</button>
+    
     <!-- Zone pour afficher les erreurs -->
     <div id="errorBox"></div>
   </form>
@@ -53,19 +54,6 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
-
-
-  <style>
-    #errorBox {
-      color: white;
-      background-color: red;
-      padding: 0.5em;
-      margin-top: 1em;
-      font-weight: bold;
-      border-radius: 4px;
-    }
-
-  </style>
 
 </body>
 </html>
