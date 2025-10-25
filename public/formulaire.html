@@ -16,38 +16,42 @@
     <button type="submit">Payer</button>
   </form>
 
-  <!-- Zone pour afficher les erreurs -->
-  <div id="errorBox" style="color:red; margin-top: 1em;"></div>
+<div id="errorBox" style="color:red; margin-top:1em;"></div>
 
-  <script>
-  document.getElementById("checkoutForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+<script>
+const form = document.getElementById("checkoutForm");
+const errorBox = document.getElementById("errorBox");
 
-    const errorBox = document.getElementById("errorBox");
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    try {
-      const data = Object.fromEntries(new FormData(e.target).entries());
+  errorBox.textContent = ""; // Réinitialiser
 
-      const response = await fetch("/api/helloasso/create-payment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+  const data = Object.fromEntries(new FormData(e.target).entries());
 
-      const result = await response.json();
+  try {
+    const response = await fetch("/api/helloasso/create-payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-      if (result.url) {
-        // Rediriger vers HelloAsso pour payer
-        window.location.href = result.url;
-        console.log("✅ Paiement créé :", result);
-      } else {
-        errorBox.textContent = "Erreur de paiement : " + (result.error || "inconnue");
-      }
-    } catch (err) {
-      errorBox.textContent = "Erreur serveur : " + err.message;
+    const result = await response.json();
+
+    if (response.ok && result.url) {
+      // Rediriger vers HelloAsso
+      window.location.href = result.url;
+    } else {
+      // Afficher erreur et détails
+      errorBox.innerHTML = `<strong>Erreur :</strong> ${result.error || "inconnue"}<br>
+                            <pre>${result.details || ""}</pre>`;
     }
-  });
-  </script>
+  } catch (err) {
+    errorBox.innerHTML = `<strong>Erreur serveur :</strong> ${err.message}`;
+  }
+});
+</script>
+
 
   <style>
     #errorBox {
