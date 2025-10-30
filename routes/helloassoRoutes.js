@@ -46,18 +46,13 @@ router.post("/create-payment", async (req, res) => {
             firstName: firstName,
             lastName: lastName,
             email: email,
-            dateOfBirth: null,
-            address: null,
-            city: null,
-            zipCode: null,
-            country: null,
             companyName: "HelloAsso"
         },
         };
 
     // 💳 Création du checkout (paiement)
     const checkoutResponse = await fetch(
-      `${process.env.HELLOASSO_API_URL}/v5/organizations/${process.env.ORG_SLUG}/checkouts`,
+      `${process.env.HELLOASSO_API_URL}/v5/organizations/${process.env.ORG_SLUG}/checkout-intents`,
       {
         method: "POST",
         headers: {
