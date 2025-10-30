@@ -53,8 +53,6 @@ router.post("/create-payment", async (req, res) => {
             country: null,
             companyName: "HelloAsso"
         },
-        metadata: {
-        }
         };
 
     // 💳 Création du checkout (paiement)
