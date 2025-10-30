@@ -39,9 +39,6 @@ router.post("/create-payment", async (req, res) => {
         errorUrl: "https://fai-checkout.onrender.com/error",
         returnUrl: "https://fai-checkout.onrender.com/return",
         containsDonation: false,
-        terms: [
-            null
-        ],
         payer: {
             firstName: firstName,
             lastName: lastName,
