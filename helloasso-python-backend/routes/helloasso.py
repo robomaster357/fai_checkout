@@ -19,6 +19,7 @@ ORG_SLUG = os.getenv("ORG_SLUG")
 
 @router.post("/create-payment")
 async def create_payment(request: Request):
+    print("📩 Requête reçue sur /api/helloasso/create-payment")
     try:
         # 📦 Récupération du body JSON
         body = await request.json()
