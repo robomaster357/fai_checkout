@@ -26,7 +26,6 @@ async def create_payment(request: Request):
         firstName = body.get("firstName")
         lastName = body.get("lastName")
         email = body.get("email")
-        amount = int(body.get("amount", 20)) * 100  # en centimes
 
         # 🔑 Étape 1 : Récupération du token HelloAsso
         token_url = f"{HELLOASSO_API_URL}/oauth2/token"
@@ -49,8 +48,8 @@ async def create_payment(request: Request):
 
         # 🧾 Étape 2 : Créer le paiement HelloAsso
         payment_data = {
-            "totalAmount": amount,
-            "initialAmount": amount,
+            "totalAmount": 2000,
+            "initialAmount": 2000,
             "itemName": "Box fibre",
             "backUrl": "https://fai-checkout.onrender.com/back",
             "errorUrl": "https://fai-checkout.onrender.com/error",
