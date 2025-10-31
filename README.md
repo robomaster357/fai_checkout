@@ -1,6 +1,6 @@
-🎓 HelloAsso Checkout – Projet Node.js / Express
+🎓 HelloAsso Checkout – Projet python
 
-Ce projet met en place un serveur Node.js avec Express, permettant à une association étudiante de gérer des paiements via l’API HelloAsso (sandbox ou production).
+Ce projet met en place un serveur python permettant à une association étudiante de gérer des paiements via l’API HelloAsso (sandbox ou production).
 L’interface web simple (HTML/CSS/JS) permet à l’utilisateur de remplir un formulaire d’adhésion et de lancer un paiement par carte bancaire.
 
 Fichier .env
@@ -10,11 +10,12 @@ HELLOASSO_CLIENT_SECRET=ton_client_secret
 HELLOASSO_API_URL=https://api.helloasso-sandbox.com
 
 Lancement du serveur
-En local : npm run dev puis ouvre 👉 http://localhost:3000
+En local : uvicorn main:app --reload --port 5000
+En ligne: https://fai-checkout.onrender.com
 
 💳 Fonctionnement du paiement HelloAsso
 L’utilisateur clique sur le bouton depuis index.html pour accéder au formulaire.html.
-Le formulaire envoie les données (nom, email, etc.) au backend Express (/api/helloasso/create-payment).
+Le formulaire envoie les données (nom, email, etc.) au backend python (/api/helloasso/create-payment).
 Le serveur :
     récupère un token d’accès OAuth2 via ton client_id / client_secret
     envoie la requête de création de paiement à HelloAsso
@@ -24,7 +25,7 @@ Le serveur :
 Technologies utilisées
 | Catégorie        | Outil                             |
 | ---------------- | --------------------------------- |
-| Backend          | Node.js, Express                  |
+| Backend          | Python (FastApi)               |
 | API externe      | HelloAsso                         |
 | Frontend         | HTML, CSS, JavaScript             |
 | Authentification | OAuth2 (Client Credentials)       |
