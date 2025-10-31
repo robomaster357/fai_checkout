@@ -32,19 +32,33 @@ router.post("/create-payment", async (req, res) => {
 
     //Formattage du json à envoyer à l'API
     const paymentData = {
-        totalAmount: 20*100, //en centimes
-        initialAmount: 20*100,
-        itemName: "Box fibre",
-        backUrl: "https://fai-checkout.onrender.com/back",
-        errorUrl: "https://fai-checkout.onrender.com/error",
-        returnUrl: "https://fai-checkout.onrender.com/return",
-        containsDonation: false,
-        payer: {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            companyName: "HelloAsso"
-        },
+          "totalAmount": 2000,
+          "initialAmount": 2000,
+          "itemName": "Box fibre",
+          "backUrl": "https://fai-checkout.onrender.com/back",
+          "errorUrl": "https://fai-checkout.onrender.com/error",
+          "returnUrl": "https://fai-checkout.onrender.com/return",
+          "containsDonation": false,
+          "payer": {
+            "firstName": firstName,
+            "lastName": lastName,
+            "email": email,
+            "dateOfBirth": "1986-07-06",
+            "address": "23 rue du palmier",
+            "city": "Paris",
+            "zipCode": "75000",
+            "country": "FRA",
+            "companyName": "HelloAsso"
+          },
+          "metadata": {
+            "reference": 12345,
+            "libelle": "Adhesion Football",
+            "userId": 98765,
+            "produits": [
+              { "id": 56, "count": 1 },
+              { "id": 78, "count": 3 }
+            ]
+          }
         };
 
     // 💳 Création du checkout (paiement)
