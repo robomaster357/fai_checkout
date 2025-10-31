@@ -43,8 +43,8 @@ form.addEventListener("submit", async (e) => {
 
     console.log("🔍 Réponse brute du backend:", result);
 
-    if (response.ok && result.url) {
-      window.location.href = result.url;
+    if (response.ok && result.redirectUrl) {
+      window.location.href = result.redirectUrl;
     } else {
       errorBox.style.display = "block";
       errorBox.innerHTML = `<strong>Erreur :</strong> ${result.error || "inconnue"}<br>
