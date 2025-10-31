@@ -1,4 +1,5 @@
 // public/script.js
+//script ne servant a priori à rien
 
 // 🧭 Fonction appelée quand la page est chargée
 document.addEventListener("DOMContentLoaded", () => {
