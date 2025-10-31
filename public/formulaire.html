@@ -41,6 +41,8 @@ form.addEventListener("submit", async (e) => {
 
     const result = await response.json();
 
+    console.log("🔍 Réponse brute du backend:", result);
+
     if (response.ok && result.url) {
       window.location.href = result.url;
     } else {
