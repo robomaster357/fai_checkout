@@ -59,21 +59,7 @@ async def create_payment(request: Request):
                 "firstName": firstName,
                 "lastName": lastName,
                 "email": email,
-                "dateOfBirth": "1986-07-06",
-                "address": "23 rue du palmier",
-                "city": "Paris",
-                "zipCode": "75000",
-                "country": "FRA",
                 "companyName": "HelloAsso"
-            },
-            "metadata": {
-                "reference": 12345,
-                "libelle": "Adhesion Football",
-                "userId": 98765,
-                "produits": [
-                    {"id": 56, "count": 1},
-                    {"id": 78, "count": 3}
-                ]
             }
         }
 
