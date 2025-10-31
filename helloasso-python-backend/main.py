@@ -15,7 +15,7 @@ load_dotenv(dotenv_path=os.path.join(BASE_DIR, ".env"))
 app = FastAPI(title="HelloAsso Python Backend")
 
 # 📂 Monter le dossier public (pour les fichiers statiques)
-PUBLIC_DIR = os.path.join(BASE_DIR, "../public")
+PUBLIC_DIR = os.path.join(BASE_DIR, "public")
 print("🧭 Dossier statique servi depuis :", os.path.abspath(PUBLIC_DIR))
 app.mount("/", StaticFiles(directory=os.path.abspath(PUBLIC_DIR), html=True), name="static")
 
