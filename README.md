@@ -10,7 +10,10 @@ HELLOASSO_CLIENT_SECRET=ton_client_secret
 HELLOASSO_API_URL=https://api.helloasso-sandbox.com
 
 Lancement du serveur
-En local : uvicorn main:app --reload --port 5000
+En local : 
+cd helloasso-python-backend
+source .venv/bin/activate
+uvicorn main:app --reload --port 5000
 En ligne: https://fai-checkout.onrender.com
 
 💳 Fonctionnement du paiement HelloAsso
